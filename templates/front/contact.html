@@ -1,0 +1,131 @@
+{% extends 'front/base.html' %}
+{% block content  %}
+{% load static %}
+    <!-- ##### Contact Area Start ##### -->
+    <div class="hero-contact-area bg-overlay clearfix" style="background-image: url('{% static 'front/img/bg-img/34.jpg' %}')">
+        <div class="container-fluid h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-lg-7">
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <p class="tag"><span>Yangiliklar</span></p>
+                        <p class="post-title">Eng sara xabarlar bizda.</p>
+                        <div class="d-flex align-items-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Contact Area End ##### -->
+
+    <!-- ##### Contact Area Start ##### -->
+    <section class="contact-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-lg-8">
+                    <div class="contact-content mb-100">
+
+                        <!-- Logo -->
+                        <a href="#" class="d-block mb-50"><img src="{% static 'front/img/core-img/logo.png' %}" alt=""></a>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <div class="icon mr-15">
+                                <img src="{% static 'front/img/core-img/map-pin.png' %}" alt="">
+                            </div>
+                            <p>O'zbekiston Respublikasi, Farg'ona viloyati, Farg'ona shahri, Parvoz MFY</p>
+                        </div>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <div class="icon mr-15">
+                                <img src="{% static 'front/img/core-img/smartphone.png' %}" alt="">
+                            </div>
+                            <p>+998 20 000 00 00</p>
+                        </div>
+
+                        <!-- Single Contact Info -->
+                        <div class="single-contact-info d-flex align-items-center">
+                            <div class="icon mr-15">
+                                <img src="{% static 'front/img/core-img/paper-plane.png' %}" alt="">
+                            </div>
+                            <p>example@gmail.com</p>
+                        </div>
+
+                        <!-- Contact Social Info -->
+                        <div class="contact-social-info mt-50 mb-70">
+                            <a href="https://github.com/azizbek260210" data-toggle="tooltip" target="_blank" data-placement="top" title="Git Hub"><i class="fa fa-github" aria-hidden="true"></i></a>
+                            <a href="https://t.me/Azizbek_Xudoyberdiev" target="_blank" data-toggle="tooltip" data-placement="top" title="Telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                            <a href="https://instagram.com/7_a_z_i_z_b_e_k_7" target="_blank" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+
+                        <!-- Contact Form Area -->
+                        <div class="contact-form-area mb-70">
+                            <h4 class="mb-50">Biz bilan bog'lanish</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="name" placeholder="Ism" name="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="phone" placeholder="Telefon" name="phone">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <textarea name="body" class="form-control" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12" style="display: flex; justify-content: center;">
+                                            <button class="btn newsbox-btn mt-30" type="submit">Send</button>
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+
+                        <!-- ##### Google Maps ##### -->
+                        <div class="map-area mb-100">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22236.40558254599!2d-118.25292394686001!3d34.057682914027104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2z4Kay4Ka4IOCmj-CmnuCnjeCmnOCnh-CmsuCnh-CmuCwg4KaV4KeN4Kav4Ka-4Kay4Ka_4Kar4KeL4Kaw4KeN4Kao4Ka_4Kav4Ka84Ka-LCDgpq7gpr7gprDgp43gppXgpr_gpqgg4Kav4KeB4KaV4KeN4Kak4Kaw4Ka-4Ka34KeN4Kaf4KeN4Kaw!5e0!3m2!1sbn!2sbd!4v1532328708137" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                    <!-- Latest News Widget -->
+                    <div class="single-widget-area news-widget mb-30">
+                        <h4>So'ngngi yangiliklar</h4>
+                        <!-- Single News Area -->
+                        {% for post in posts %}
+                        <div class="single-blog-post d-flex style-4 mb-30">
+                            <!-- Blog Thumbnail -->
+                            <div class="blog-thumbnail">
+                                <a href="#"><img src="{{post.banner_img.url}}" alt=""></a>
+                            </div>
+
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <span class="post-date">{{post.date}}</span>
+                                <a href="#" class="post-title">{{post.title}}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Contact Area End ##### -->
+
+    {% endblock %}
